@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PackageModal from "./PackageModal";
 
 const packages = [
   {
@@ -8,7 +9,7 @@ const packages = [
     name: "The Foundation",
     tagline: "Legal & Digital Presence in <30 Days",
     description: "Founders needing a legal & digital presence in less than 30 days",
-    price: "AED 1250",
+    price: "AED 12,500",
     speed: "21-30 Days",
     roots: [
       "Trade License Setup",
@@ -28,7 +29,7 @@ const packages = [
     name: "The Scaler",
     tagline: "Hire & Dominate Local Search",
     description: "Companies ready to hire and dominate local search",
-    price: "AED 2800",
+    price: "AED 28,000",
     speed: "30-45 Days",
     roots: [
       "Everything in Foundation",
@@ -87,6 +88,7 @@ const packages = [
 
 export default function PricingSection() {
   const [showRoots, setShowRoots] = useState(true);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
   return (
     <section id="packages" className="py-20 px-4 md:px-6 relative overflow-hidden">
@@ -193,6 +195,7 @@ export default function PricingSection() {
 
                 {/* CTA Button */}
                 <Button
+                  onClick={() => setSelectedPackage(pkg.name)}
                   className={`w-full bg-gradient-to-r ${pkg.gradient} text-white border-0 hover:opacity-90`}
                 >
                   Get Started
@@ -209,6 +212,13 @@ export default function PricingSection() {
           </p>
         </div>
       </div>
+
+      {/* Package Modal */}
+      <PackageModal
+        isOpen={selectedPackage !== null}
+        packageName={selectedPackage || ""}
+        onClose={() => setSelectedPackage(null)}
+      />
     </section>
   );
 }
