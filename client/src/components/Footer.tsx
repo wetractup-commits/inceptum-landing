@@ -17,7 +17,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-foreground/60 text-sm">
-              Your complete partner for launching tech startups in the UAE.
+              Your complete partner for launching a company in the UAE.
             </p>
           </div>
 
@@ -55,8 +55,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-purple-600" />
-                <a href="tel:+971123456789" className="hover:text-foreground transition">
-                  +971 1 234 5678
+                <a href="tel:+971 50 826 8296" className="hover:text-foreground transition">
+                  +971 50 826 8296
                 </a>
               </li>
               <li className="flex items-start gap-2">
