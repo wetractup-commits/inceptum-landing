@@ -8,7 +8,7 @@ const packages = [
     name: "The Foundation",
     tagline: "Legal & Digital Presence in <30 Days",
     description: "Founders needing a legal & digital presence in less than 30 days",
-    price: "AED 12,500",
+    price: "AED 1250",
     speed: "21-30 Days",
     roots: [
       "Trade License Setup",
@@ -28,7 +28,7 @@ const packages = [
     name: "The Scaler",
     tagline: "Hire & Dominate Local Search",
     description: "Companies ready to hire and dominate local search",
-    price: "AED 28,000",
+    price: "AED 2800",
     speed: "30-45 Days",
     roots: [
       "Everything in Foundation",
