@@ -30,12 +30,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("home")}
+            <Link
+              href="/"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
               Home
-            </button>
+            </Link>
 
             {/* Ecosystem Dropdown */}
             <div className="relative group">
@@ -44,27 +44,27 @@ export default function Header() {
                 <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
               </button>
               <div className="absolute left-0 mt-2 w-48 rounded-lg backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <button
-                  onClick={() => scrollToSection("features")}
-                  className="w-full text-left px-4 py-3 text-foreground/80 hover:text-foreground hover:bg-white/10 transition-colors first:rounded-t-lg"
+                <Link
+                  href="/#features"
+                  className="block w-full text-left px-4 py-3 text-foreground/80 hover:text-foreground hover:bg-white/10 transition-colors first:rounded-t-lg"
                 >
                   Operational Services
-                </button>
-                <button
-                  onClick={() => scrollToSection("digital-services")}
-                  className="w-full text-left px-4 py-3 text-foreground/80 hover:text-foreground hover:bg-white/10 transition-colors last:rounded-b-lg"
+                </Link>
+                <Link
+                  href="/#digital-services"
+                  className="block w-full text-left px-4 py-3 text-foreground/80 hover:text-foreground hover:bg-white/10 transition-colors last:rounded-b-lg"
                 >
                   Digital Services
-                </button>
+                </Link>
               </div>
             </div>
 
-            <button
-              onClick={() => scrollToSection("packages")}
+            <Link
+              href="/#packages"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
               Packages
-            </button>
+            </Link>
             <Link
               href="/about"
               className="text-foreground/80 hover:text-foreground transition-colors"
@@ -99,12 +99,13 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden border-t border-white/20 px-6 py-4 space-y-4">
-            <button
-              onClick={() => scrollToSection("home")}
+            <Link
+              href="/"
               className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"
+              onClick={() => setIsOpen(false)}
             >
               Home
-            </button>
+            </Link>
 
             {/* Mobile Ecosystem Dropdown */}
             <div>
@@ -120,28 +121,31 @@ export default function Header() {
               </button>
               {isEcosystemOpen && (
                 <div className="pl-4 space-y-2 mt-2">
-                  <button
-                    onClick={() => scrollToSection("features")}
+                  <Link
+                    href="/#features"
                     className="block w-full text-left text-foreground/70 hover:text-foreground transition-colors py-1"
+                    onClick={() => setIsOpen(false)}
                   >
                     Operational Services
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("digital-services")}
+                  </Link>
+                  <Link
+                    href="/#digital-services"
                     className="block w-full text-left text-foreground/70 hover:text-foreground transition-colors py-1"
+                    onClick={() => setIsOpen(false)}
                   >
                     Digital Services
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
 
-            <button
-              onClick={() => scrollToSection("packages")}
+            <Link
+              href="/#packages"
               className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"
+              onClick={() => setIsOpen(false)}
             >
               Packages
-            </button>
+            </Link>
             <Link
               href="/about"
               className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"

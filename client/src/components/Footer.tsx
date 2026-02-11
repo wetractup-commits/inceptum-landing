@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Footer() {
   return (
@@ -24,10 +25,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-foreground/60">
-              <li><a href="#solutions" className="hover:text-foreground transition">Solutions</a></li>
-              <li><a href="#features" className="hover:text-foreground transition">Services</a></li>
-              <li><a href="#how-it-works" className="hover:text-foreground transition">How It Works</a></li>
-              <li><a href="#faq" className="hover:text-foreground transition">FAQ</a></li>
+              <li><Link href="/#packages" className="hover:text-foreground transition">Packages</Link></li>
+              <li><Link href="/#features" className="hover:text-foreground transition">Services</Link></li>
+              <li><Link href="/#how-it-works" className="hover:text-foreground transition">How It Works</Link></li>
+              <li><Link href="/#faq" className="hover:text-foreground transition">FAQ</Link></li>
             </ul>
           </div>
 
@@ -35,10 +36,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-foreground/60">
-              <li><a href="#" className="hover:text-foreground transition">About</a></li>
-              <li><a href="#" className="hover:text-foreground transition">Blog</a></li>
-              <li><a href="#" className="hover:text-foreground transition">Careers</a></li>
-              <li><a href="#" className="hover:text-foreground transition">Contact</a></li>
+              <li><Link href="/about" className="hover:text-foreground transition">About</Link></li>
+              <li><Link href="/" className="hover:text-foreground transition">Home</Link></li>
+              <li><Link href="/booking" className="hover:text-foreground transition">Book Session</Link></li>
+              <li><a href="mailto:hello@inceptum.ae" className="hover:text-foreground transition">Contact</a></li>
             </ul>
           </div>
 
