@@ -3,6 +3,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import AdminDashboard from "@/pages/AdminDashboard";
 import About from "@/pages/About";
+import Booking from "@/pages/Booking";
+import ThankYou from "@/pages/ThankYou";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -14,6 +16,8 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
+      <Route path={"/booking"} component={Booking} />
+      <Route path={"/thank-you"} component={ThankYou} />
       <Route path={"/admin"} component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

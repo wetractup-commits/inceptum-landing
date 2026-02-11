@@ -75,12 +75,16 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0"
+            <Link
+              href="/booking"
+              className="inline-block"
             >
-              Book Strategy Session
-            </Button>
+              <Button
+                className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0"
+              >
+                Book Strategy Session
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -145,12 +149,17 @@ export default function Header() {
             >
               About
             </Link>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0"
+            <Link
+              href="/booking"
+              className="block"
+              onClick={() => setIsOpen(false)}
             >
-              Book Strategy Session
-            </Button>
+              <Button
+                className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0"
+              >
+                Book Strategy Session
+              </Button>
+            </Link>
           </div>
         )}
       </nav>
