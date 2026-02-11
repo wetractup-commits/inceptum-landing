@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,12 +65,12 @@ export default function Header() {
             >
               Packages
             </button>
-            <button
-              onClick={() => scrollToSection("about")}
+            <Link
+              href="/about"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
               About
-            </button>
+            </Link>
           </div>
 
           {/* CTA Button */}
@@ -137,12 +138,13 @@ export default function Header() {
             >
               Packages
             </button>
-            <button
-              onClick={() => scrollToSection("about")}
+            <Link
+              href="/about"
               className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"
+              onClick={() => setIsOpen(false)}
             >
               About
-            </button>
+            </Link>
             <Button
               onClick={() => scrollToSection("contact")}
               className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0"
