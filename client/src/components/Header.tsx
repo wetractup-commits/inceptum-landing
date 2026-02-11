@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isEcosystemOpen, setIsEcosystemOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
+    setIsEcosystemOpen(false);
   };
 
   return (
@@ -28,29 +30,55 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection("features")}
+              onClick={() => scrollToSection("home")}
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
-              Services
+              Home
+            </button>
+
+            {/* Ecosystem Dropdown */}
+            <div className="relative group">
+              <button className="text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1">
+                The Ecosystem
+                <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
+              </button>
+              <div className="absolute left-0 mt-2 w-48 rounded-lg backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                <button
+                  onClick={() => scrollToSection("features")}
+                  className="w-full text-left px-4 py-3 text-foreground/80 hover:text-foreground hover:bg-white/10 transition-colors first:rounded-t-lg"
+                >
+                  Operational Services
+                </button>
+                <button
+                  onClick={() => scrollToSection("digital-services")}
+                  className="w-full text-left px-4 py-3 text-foreground/80 hover:text-foreground hover:bg-white/10 transition-colors last:rounded-b-lg"
+                >
+                  Digital Services
+                </button>
+              </div>
+            </div>
+
+            <button
+              onClick={() => scrollToSection("packages")}
+              className="text-foreground/80 hover:text-foreground transition-colors"
+            >
+              Packages
             </button>
             <button
-              onClick={() => scrollToSection("how-it-works")}
+              onClick={() => scrollToSection("about")}
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
-              How It Works
-            </button>
-            <button
-              onClick={() => scrollToSection("faq")}
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              FAQ
+              About
             </button>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0">
-              Get Started
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0"
+            >
+              Book Strategy Session
             </Button>
           </div>
 
@@ -67,25 +95,59 @@ export default function Header() {
         {isOpen && (
           <div className="md:hidden border-t border-white/20 px-6 py-4 space-y-4">
             <button
-              onClick={() => scrollToSection("features")}
-              className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors"
+              onClick={() => scrollToSection("home")}
+              className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"
             >
-              Services
+              Home
+            </button>
+
+            {/* Mobile Ecosystem Dropdown */}
+            <div>
+              <button
+                onClick={() => setIsEcosystemOpen(!isEcosystemOpen)}
+                className="w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2 flex items-center justify-between"
+              >
+                The Ecosystem
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform ${isEcosystemOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {isEcosystemOpen && (
+                <div className="pl-4 space-y-2 mt-2">
+                  <button
+                    onClick={() => scrollToSection("features")}
+                    className="block w-full text-left text-foreground/70 hover:text-foreground transition-colors py-1"
+                  >
+                    Operational Services
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("digital-services")}
+                    className="block w-full text-left text-foreground/70 hover:text-foreground transition-colors py-1"
+                  >
+                    Digital Services
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={() => scrollToSection("packages")}
+              className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"
+            >
+              Packages
             </button>
             <button
-              onClick={() => scrollToSection("how-it-works")}
-              className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors"
+              onClick={() => scrollToSection("about")}
+              className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors py-2"
             >
-              How It Works
+              About
             </button>
-            <button
-              onClick={() => scrollToSection("faq")}
-              className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors"
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0"
             >
-              FAQ
-            </button>
-            <Button className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0">
-              Get Started
+              Book Strategy Session
             </Button>
           </div>
         )}
